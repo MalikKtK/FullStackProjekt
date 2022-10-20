@@ -3,45 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>Wishing cloud</title>
-    <link rel="stylesheet" href="../static/CssFiles/homepage.css">
-    <link rel="stylesheet" href="../static/CssFiles/navigation.css">
-    <script defer src="../static/JavaScript/navigation.js"></script>
+    <link rel="stylesheet" href="../CssFiles/style.css">
+    <script src="https://kit.fontawesome.com/221f89293e.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<header>
-    <nav class="nav-bar">
-        <div class="logo">
-            Ønskeskyen
+<div class="container">
+    <nav>
+        <input type="checkbox" id="show-search">
+        <input type="checkbox" id="show-menu">
+        <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+        <div class="content">
+            <div class="logo"><a href="#">Wishing Cloud</a></div>
+            <ul class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li>
+                    <a href="#" class="desktop-link">Inspiration</a>
+                    <input type="checkbox" id="show-Inspiration">
+                    <label for="show-Inspiration">Inspiration</label>
+                    <ul>
+                        <li><a href="#">Brands</a></li>
+                        <li><a href="#">WishingPost</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Giftcard</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="desktop-link">Help</a>
+                    <input type="checkbox" id="show-help">
+                    <label for="show-help">Help</label>
+                    <ul>
+                        <li><a href="#">How to use Wishing Cloud</a></li>
+                        <li><a href="#">Share a wish</a></li>
+                        <li><a href="#">Reserve a wish</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="#">Contact</a></li>
+                    <li class="register-li"><a href="#">Register</a></li>
+                    <li class="login-li"><a href="#">Login</a></li>
+            </ul>
         </div>
-        <ul class="nav-items">
-            <li><a href="../">Home</a></li>
-            <li><a href="../inspiration">Inspiration</a></li>
-            <li><a href="../register">Register</a></li>
-            <li><a href="../about">About</a></li>
-        </ul>
+        <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
+        <form action="#" class="search-box">
+            <input type="text" placeholder="Type Something to Search..." required>
+            <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
+        </form>
     </nav>
-</header>
-
-
-<div class="logo1">
-</div>
-
-<div class="hero-image">
+    <div class="hero-image">
+    </div>
     <div class="hero-text">
-        <h1 style="font-size:50px">Wishing cloud</h1>
-        <h3>This is a wishing portal</h3>
+        <h1 style="font-size:50px">SAVE AND SHARE ALL YOUR WISHES</h1>
+        <p>The Wishing Cloud makes it easy for you to save and share all <br> your wishes with friends and family</p>
         <button>Start her</button>
     </div>
+    <div class="wishbuttom">
+        <button type="submit" class="go-icon">  <i class="fa-solid fa-calendar-clock" placeholder="Create wish">Create Wish</i></button>
+    </div>
 </div>
-
-<div class="Centered-text">
-    <h1>WELCOME TO THE WISH PORTAL</h1>
-    <p>SAVE AND SHARE ALL YOUR WISHES</p>
-    <p>MORE THAN 2.5 MILLION WISH CLOUDS</p>
-    <p>HOW THE WISH CLOUD WORKS</p>
-</div>
-
-
 
 
 </body>
