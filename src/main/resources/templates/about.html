@@ -3,8 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>About</title>
+    <link rel="stylesheet" href="../CssFiles/style.css">
 </head>
 <body>
+<div class="container">
+    <nav>
+        <input type="checkbox" id="show-search">
+        <input type="checkbox" id="show-menu">
+        <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+        <div class="content">
+            <div class="logo"><a href="/">Wishing Cloud</a></div>
+            <ul class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li>
+
+                    <!-- Hvad gør linjen nedenunder -->
+                    <a href="/inspiration" class="desktop-link">Inspiration</a>
+                    <input type="checkbox" id="show-Inspiration">
+                    <label for="show-Inspiration">Inspiration</label>
+                    <ul>
+                        <li><a href="#">Brands</a></li>
+                        <li><a href="#">WishingPost</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Giftcard</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="desktop-link">Help</a>
+                    <input type="checkbox" id="show-help">
+                    <label for="show-help">Help</label>
+                    <ul>
+                        <li><a href="#">How to use Wishing Cloud</a></li>
+                        <li><a href="#">Share a wish</a></li>
+                        <li><a href="#">Reserve a wish</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="/contact">Contact</a></li>
+                <li class="register-li"><a href="/register">Register</a></li>
+                <li class="login-li"><a href="/login">Login</a></li>
+            </ul>
+        </div>
+        <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
+        <form action="#" class="search-box">
+            <input type="text" placeholder="Type Something to Search..." required>
+            <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
+        </form>
+    </nav>
+
+    <div class="hero-image2">
+    </div>
+    <div class="hero-text">
+        <h1 style="font-size:50px">Inspiration for your wishlist</h1>
+        <p>Find the very best and most popular gift wishes right now</p>
+    </div>
+</div>
 
 </body>
 </html>
