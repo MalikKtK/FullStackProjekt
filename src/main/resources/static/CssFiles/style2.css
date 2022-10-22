@@ -1,3 +1,21 @@
+body, html {
+    height: 100%;
+}
+
+.parallax {
+    /* The image used */
+    background-image: url('../images/cloud.png');
+
+    /* Full height */
+    height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
     margin: 0;
@@ -248,45 +266,15 @@ nav .content .links{
         padding-right: 30px;
     }
 }
-
-
-.hero-image1 {
-    background-image: url("../Images/cloud.png");
-    background-color: #cccccc;
-    height: 1000px;
-    background-position: center;
+.logo2 {
+    max-height: 100%;
+    max-width: 100%;
+    width: 163px;
+    height: 163px;
+    background: url('../images/cloud2.jpeg') no-repeat scroll center center transparent;
     background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-    z-index: -1;
-}
-
-.hero-image2 {
-    background-image: url("../Images/cloud2.jpeg");
-    background-color: #cccccc;
-    height: 1000px;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-    z-index: -1;
-}
-
-.hero-text {
+    float: left;
     position: absolute;
-    top: 50%;
-    left: 35%;
-    bottom: 1%;
-    width: 100%;
-    z-index: -1;
-    padding: 0 20px;
-    text-align: center;
-    transform: translate(-50%, -50%);
+    top: 45%;
+    left: 40%;
 }
-.wishbuttom {
-    z-index: -1;
-    position: absolute;
-    left: 50%;
-    bottom: 32%;
-}
-
