@@ -4,12 +4,11 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-size: 16px;
     font-family: 'Poppins', sans-serif;
 }
 .container{
     background: #171c24;
-    position: fixed;
+    position: sticky;
     width: 100%;
 }
 .container nav{
@@ -249,11 +248,7 @@ nav .content .links{
         padding-right: 30px;
     }
 }
-@media screen and (max-width: 600px) {
-    .hero-text .wishbuttom .content-workslikethis .hero-image1 .hero-image2 {
-        font-size: 30px;
-    }
-}
+
 
 .hero-image1 {
     background-image: url("../Images/cloud.png");
@@ -298,6 +293,6 @@ nav .content .links{
 .content-workslikethis {
     z-index: -1;
     position: absolute;
-    left: 50%;
-    bottom: 20%;
+    left: 40%;
+    bottom: 15%;
 }
