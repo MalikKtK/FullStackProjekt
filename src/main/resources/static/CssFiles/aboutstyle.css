@@ -2,7 +2,6 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
 }
@@ -256,8 +255,6 @@ nav .content .links{
     width: 100%;
     padding: 20vh;
     height: 100vh;
-    text-align: center;
-    z-index: -1;
 }
 
 @media screen and (max-width: 600px) {
@@ -268,3 +265,28 @@ nav .content .links{
         font-size: 14px;
     }
 }
+ h1 {
+     margin-bottom: 2rem;
+ }
+
+ form {
+     display: flex;
+     flex-direction: column;
+     width: 24rem;
+     gap: 1rem;
+ }
+ input, select, textarea {
+     padding: 1.4rem;
+     background: transparent;
+     border: 1px solid black;
+ }
+ textarea {
+     height: 6rem;
+ }
+ button {
+     width: 8rem;
+     padding: 1.4rem;
+     cursor: pointer;
+     background: #673de6;
+     color: white;
+ }

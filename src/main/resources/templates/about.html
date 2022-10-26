@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>About</title>
-    <link rel="stylesheet" href="../CssFiles/style.css">
+    <link rel="stylesheet" href="../CssFiles/aboutstyle.css">
     <script src="https://kit.fontawesome.com/221f89293e.js" crossorigin="anonymous"></script>
 
 </head>
@@ -54,12 +54,32 @@
         </form>
     </nav>
 </div>
-    <div class="hero-image2">
+<div class="container-text">
+        <h1>Contact Form</h1>
+    <form action="https://formsubmit.co/kutuk-malik2635@live.dk" method="POST">
+        <label>
+            <input type="text" name="Name" placeholder="Full Name" required>
+        </label>
+        <label>
+            <input type="email" name="Email" placeholder="Email" required>
+        </label>
+        <label>
+            <select name="Continent">
+                <option>Africa</option>
+                <option>Antarctica</option>
+                <option>Asia</option>
+                <option>Australia</option>
+                <option>Europe</option>
+                <option>North America</option>
+                <option>South America</option>
+            </select>
+        </label>
+        <label>
+            <textarea name="Message" placeholder="Message" required> </textarea>
+        </label>
+        <button type="submit">Send</button>
+        <input type="hidden" name="_autoresponse" value="Thank you! We will contact you as soon as possible!">
+    </form>
     </div>
-    <div class="hero-text">
-        <h1 style="font-size:50px">Inspiration for your wishlist</h1>
-        <p>Find the very best and most popular gift wishes right now</p>
-    </div>
-
 </body>
 </html>
