@@ -257,7 +257,6 @@ nav .content .links{
     padding: 20vh;
     height: 100vh;
     text-align: center;
-    z-index: -1;
 }
 
 @media screen and (max-width: 600px) {
