@@ -7,6 +7,19 @@ body, html {
     background-image: url('../images/cloud.png');
 
     /* Full height */
+    height: 70%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.parallax2 {
+    /* The image used */
+    background-image: url('../images/cloud.png');
+
+    /* Full height */
     height: 100%;
 
     /* Create the parallax scrolling effect */
