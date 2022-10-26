@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Contact</title>
-  <link rel="stylesheet" href="../CssFiles/style.css">
+  <meta charset="UTF-8">
+  <title>Contact</title>
+  <link rel="stylesheet" href="../CssFiles/contactstyle.css">
   <script src="https://kit.fontawesome.com/221f89293e.js" crossorigin="anonymous"></script>
 
 </head>
@@ -19,6 +19,8 @@
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li>
+
+          <!-- Hvad gør linjen nedenunder -->
           <a href="/inspiration" class="desktop-link">Inspiration</a>
           <input type="checkbox" id="show-Inspiration">
           <label for="show-Inspiration">Inspiration</label>
@@ -30,7 +32,7 @@
           </ul>
         </li>
         <li>
-          <a href="/help" class="desktop-link">Help</a>
+          <a href="#" class="desktop-link">Help</a>
           <input type="checkbox" id="show-help">
           <label for="show-help">Help</label>
           <ul>
@@ -51,67 +53,33 @@
       <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
     </form>
   </nav>
-
 </div>
-  <div class="hero-image1">
-  </div>
-
-
-  <div class="hero-text">
-    <h1>This is Databois</h1>
-    <p>2. semester 2022.</p>
-    <p>Full-Stack HTML & CSS project</p>
-  </div>
-
-  <div class="hero-text">
-  <h2 style="text-align:center">The Team</h2>
+<div class="container-text">
+  <h1>Contact Form</h1>
+  <form action="https://formsubmit.co/kutuk-malik2635@live.dk" method="POST">
+    <label>
+      <input type="text" name="Name" placeholder="Full Name" required>
+    </label>
+    <label>
+      <input type="email" name="Email" placeholder="Email" required>
+    </label>
+    <label>
+      <select name="Continent">
+        <option>Africa</option>
+        <option>Antarctica</option>
+        <option>Asia</option>
+        <option>Australia</option>
+        <option>Europe</option>
+        <option>North America</option>
+        <option>South America</option>
+      </select>
+    </label>
+    <label>
+      <textarea name="Message" placeholder="Message" required> </textarea>
+    </label>
+    <button type="submit">Send</button>
+    <input type="hidden" name="_autoresponse" value="Thank you! We will contact you as soon as possible!">
+  </form>
 </div>
-
-
-
-  <div class="row">
-    <div class="column">
-      <div class="card">
-        <img src="https://i.pinimg.com/originals/d9/56/9b/d9569bbed4393e2ceb1af7ba64fdf86a.jpg" alt="Ebubekir" style="width:100%">
-        <div class="container">
-          <h2>Ebubekir Kayhan</h2>
-          <p class="title">Databoi 1</p>
-          <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-          <p>ebub0036@stud.kea.dk</p>
-          <p><button class="button">Contact</button></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-<div class="column">
-  <div class="card">
-    <img src="https://i.pinimg.com/originals/d9/56/9b/d9569bbed4393e2ceb1af7ba64fdf86a.jpg" alt="Mark" style="width:100%">
-    <div class="container">
-      <h2>Mark Bjørk Ziegler</h2>
-      <p class="title">Databoi 2</p>
-      <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-      <p>mark893b@stud.kea.dk</p>
-      <p><button class="button">Contact</button></p>
-    </div>
-  </div>
-</div>
-
-
-<div class="column">
-  <div class="card">
-    <img src="https://i.pinimg.com/originals/d9/56/9b/d9569bbed4393e2ceb1af7ba64fdf86a.jpg" alt="Malik" style="width:100%">
-    <div class="container">
-      <h2>Malik Kütük</h2>
-      <p class="title">Databoi 3</p>
-      <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-      <p>mali0237@stud.kea.dk</p>
-      <p><button class="button">Contact</button></p>
-    </div>
-  </div>
-</div>
-
 </body>
 </html>
