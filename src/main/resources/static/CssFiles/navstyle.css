@@ -6,21 +6,12 @@
     text-decoration: none;
     font-family: 'Poppins', sans-serif;
 }
-
 .container{
-    background: #171a20;
-    position: sticky;
+    background: #171c24;
+    position: fixed;
     width: 100%;
     z-index: 1;
 }
-
-.container-contact{
-    background: #171a20;
-    position: sticky;
-    width: 100%;
-    z-index: 1;
-}
-
 .container nav{
     position: relative;
     display: flex;
@@ -256,98 +247,5 @@ nav .content .links{
     }
     .container .search-box input{
         padding-right: 30px;
-    }
-}
-
-
-.hero-image1 {
-    background-image: url("../Images/cloud.png");
-    background-color: #cccccc;
-    height: 1000px;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-    z-index: -1;
-}
-
-.hero-image2 {
-    background-image: url("../Images/cloud2.jpeg");
-    background-color: #cccccc;
-    height: 1000px;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-    z-index: -1;
-}
-
-.hero-text-contact {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    bottom: 1%;
-    width: 100%;
-    z-index: -1;
-    padding: 0 20px;
-    text-align: center;
-    transform: translate(-50%, -50%);
-}
-
-.column {
-    float: left;
-    width: 33.3%;
-    margin-bottom: 16px;
-    padding: 0 8px;
-}
-
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin: 8px;
-}
-
-
-.container {
-    padding: 0 16px;
-}
-
-.container::after, .row::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-.title {
-    color: grey;
-}
-
-.contact-text {
-    color: white;
-}
-
-.button {
-    border: none;
-    outline: 0;
-    display: inline-block;
-    padding: 8px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-}
-
-.button:hover {
-    background-color: #555;
-}
-
-
-
-@media screen and (max-width: 400px) {
-    .container-text {
-        padding: 0 10px;
-    }
-    .container-text {
-        font-size: 27px;
     }
 }
