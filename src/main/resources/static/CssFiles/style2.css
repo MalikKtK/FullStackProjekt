@@ -4,10 +4,10 @@ body, html {
 
 .parallax {
     /* The image used */
-    background-image: url('../images/cloud.png');
+    background-image: url('../images/be-inspired-inside.jpeg');
 
     /* Full height */
-    height: 70%;
+    height: 100%;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -290,4 +290,11 @@ nav .content .links{
     position: absolute;
     top: 45%;
     left: 40%;
+}
+
+.a {
+    text-align: center;
+}
+.b {
+    text-align: center;
 }
