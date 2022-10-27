@@ -9,6 +9,7 @@ body, html {
     /* Full height */
     height: 100%;
 
+
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
@@ -18,6 +19,47 @@ body, html {
 .parallax2 {
     /* The image used */
     background-image: url('../images/cloud.png');
+
+    /* Full height */
+    height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax3 {
+    /* The image used */
+    background-image: url('../images/pexels-eberhard-grossgasteiger-844297.jpg');
+
+    /* Full height */
+    height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax4 {
+    /* The image used */
+    background-image: url('../images/gift1.jpeg');
+
+    /* Full height */
+    height: 100%;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.parallax5 {
+    /* The image used */
+    background-image: url('../images/gift2.jpeg');
 
     /* Full height */
     height: 100%;
