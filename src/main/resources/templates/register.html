@@ -54,13 +54,14 @@
     </form>
   </nav>
 </div>
-  <div class="hero-image1">
-  </div>
-  <div class="hero-text">
-    <h1 style="font-size:50px">SAVE AND SHARE ALL YOUR WISHES</h1>
-    <p>The Wishing Cloud makes it easy for you to save and share all <br> your wishes with friends and family</p>
-    <button>Start her</button>
-  </div>
+<form method="POST" action="/createUser">
+  <h3>Create a user:</h3>
+  <label for="name">Please enter your name</label><br>
+  <input type="text" name="name" id="name" required><br><br>
+  <label for="email">Please enter your e-mail</label><br>
+  <input type="text" name="email" id="email" pattern=".*[@]+.*" required/><br><br>
+  <input type="submit">
+</form>
   <div class="wishbuttom">
     <button type="submit" class="go-icon">  <i class="fa-solid fa-calendar-clock" placeholder="Create wish">Create Wish</i></button>
   </div>
