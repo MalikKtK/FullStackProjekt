@@ -24,14 +24,17 @@ public class HomeController {
     public String inspiration() {
         return "inspiration";
     }
+
     @GetMapping("/about")
     public String about() {
         return "about";
     }
+
     @GetMapping("/help")
     public String help() {
         return "help";
     }
+
     @GetMapping("/contact")
     public String contact() {
         return "contact";
@@ -52,14 +55,15 @@ public class HomeController {
 
         return "redirect:/";
     }
+
     @GetMapping("/login")
     public String login() {
         return "login";
     }
 
     @GetMapping("/")
-    public String getWish(Model model){
-        model.addAttribute("Wish1","a");
+    public String getWish(Model model) {
+        model.addAttribute("Wish1", "a");
         model.addAttribute("Wish2", "b");
         model.addAttribute("Wish3", "c");
         return "index";
