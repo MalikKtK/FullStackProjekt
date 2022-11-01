@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
-  <link rel="stylesheet" href="../CssFiles/registerstyle.css">
-  <link rel="stylesheet" href="../CssFiles/navstyle.css">
+    <title>Login</title>
+  <link rel="stylesheet" href="../CssFiles/login-style.css">
+  <link rel="stylesheet" href="../CssFiles/nav-style.css">
   <script src="https://kit.fontawesome.com/221f89293e.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
-
 <div class="container">
   <nav>
     <input type="checkbox" id="show-search">
@@ -54,18 +53,16 @@
     </form>
   </nav>
 </div>
-<form method="POST" action="/createUser">
-  <h3>Create a user:</h3>
-  <label for="name">Please enter your name</label><br>
-  <input type="text" name="name" id="name" required><br><br>
-  <label for="email">Please enter your e-mail</label><br>
-  <input type="text" name="email" id="email" pattern=".*[@]+.*" required/><br><br>
-  <input type="submit">
-</form>
-  <div class="wishbuttom">
-    <button type="submit" class="go-icon">  <i class="fa-solid fa-calendar-clock" placeholder="Create wish">Create Wish</i></button>
+  <div class="hero-image1">
   </div>
-
+  <div class="hero-text">
+    <form method="GET" action="/giftList">
+      <h3>Login</h3>
+      <label for="emailLog">Please enter your e-mail</label><br>
+      <input type="text" name="email" id="emailLog" pattern=".*[@]+.*" required placeholder="E-mail"/><br><br>
+      <input type="submit">
+    </form>
+  </div>
 
 </body>
 </html>

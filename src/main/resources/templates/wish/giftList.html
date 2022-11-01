@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../CssFiles/giftList-style.css">
+    <link rel="stylesheet" href="../CssFiles/nav-style.css">
+    <script src="https://kit.fontawesome.com/221f89293e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <nav>
+        <input type="checkbox" id="show-search">
+        <input type="checkbox" id="show-menu">
+        <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+        <div class="content">
+            <div class="logo"><a href="/">Wishing Cloud</a></div>
+            <ul class="links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li>
+                    <a href="/inspiration" class="desktop-link">Inspiration</a>
+                    <input type="checkbox" id="show-Inspiration">
+                    <label for="show-Inspiration">Inspiration</label>
+                    <ul>
+                        <li><a href="#">Brands</a></li>
+                        <li><a href="#">WishingPost</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Giftcard</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/help" class="desktop-link">Help</a>
+                    <input type="checkbox" id="show-help">
+                    <label for="show-help">Help</label>
+                    <ul>
+                        <li><a href="#">How to use Wishing Cloud</a></li>
+                        <li><a href="#">Share a wish</a></li>
+                        <li><a href="#">Reserve a wish</a></li>
+
+                    </ul>
+                </li>
+                <li><a href="/contact">Contact</a></li>
+                <li class="register-li"><a href="/register">Register</a></li>
+                <li class="login-li"><a href="/login">Login</a></li>
+            </ul>
+        </div>
+        <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
+        <form action="#" class="search-box">
+            <label>
+                <input type="text" placeholder="Type Something to Search..." required>
+            </label>
+            <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
+        </form>
+    </nav>
+</div>
+<form method="post" action="/giftList/newWishlist">
+    <h1 th:text="'Wishlists for ' + ${email}"></h1>
+    <h2>New Wish: </h2>
+    <label for="listName">Enter a name for the wish list: </label><br>
+    <input type="text" name="listName" id="listName" required placeholder="Name"/> <br>
+    <input type="submit">
+    <input type="hidden" name="email" th:value="${email}">
+</form>
+<table>
+        <tr>List</tr>
+    <tr th:each="giftlist: ${giftLists}">
+
+        <td th:text="${giftlist.listName}"></td>
+        <td>
+            <form method="POST" action="/giftList/editList">
+                <input type="submit" value="Edit">
+                <input type="hidden" name="listID" th:value="${giftlist.listID}">
+            </form>
+        </td>
+        <td>
+            <form method="POST" action="/giftList/deleteWishlist">
+                <input type="submit" value="Delete">
+                <input type="hidden" name="listID" th:value="${giftlist.listID}">
+                <input type="hidden" name="email" th:value="${email}">
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Help</title>
-    <link rel="stylesheet" href="../CssFiles/style.css">
-    <link rel="stylesheet" href="../CssFiles/navstyle.css">
+    <title>Your Wishlist</title>
+    <link rel="stylesheet" href="../CssFiles/shareGift-style.css">
+    <link rel="stylesheet" href="../CssFiles/nav-style.css">
     <script src="https://kit.fontawesome.com/221f89293e.js" crossorigin="anonymous"></script>
-
 </head>
 <body>
 <div class="container">
@@ -19,8 +18,6 @@
             <ul class="links">
                 <li><a href="/">Home</a></li>
                 <li><a href="/about">About</a></li>
-
-
                 <li>
                     <a href="/inspiration" class="desktop-link">Inspiration</a>
                     <input type="checkbox" id="show-Inspiration">
@@ -50,21 +47,40 @@
         </div>
         <label for="show-search" class="search-icon"><i class="fas fa-search"></i></label>
         <form action="#" class="search-box">
-            <input type="text" placeholder="Type Something to Search..." required>
+            <label>
+                <input type="text" placeholder="Type Something to Search..." required>
+            </label>
             <button type="submit" class="go-icon"><i class="fas fa-long-arrow-alt-right"></i></button>
         </form>
     </nav>
 </div>
-    <div class="hero-image1">
-    </div>
-    <div class="hero-text">
-        <h1 style="font-size:50px">SAVE AND SHARE ALL YOUR WISHES</h1>
-        <p>The Wishing Cloud makes it easy for you to save and share all <br> your wishes with friends and family</p>
-        <button>Start her</button>
-    </div>
-    <div class="wishbuttom">
-        <button type="submit" class="go-icon">  <i class="fa-solid fa-calendar-clock" placeholder="Create wish">Create Wish</i></button>
-    </div>
 
+<div class="giftlists">
+    <table>
+        <tr>
+            <th>Gift</th>
+            <th>Price</th>
+            <th>Link</th>
+            <th>Reserved</th>
+        </tr>
+        <tr th:each="gift: ${gifts}">
+            <td th:text="${gift.giftName}"></td>
+            <td th:text="${gift.price}"></td>
+            <td>
+                <a th:href="${gift.url}" th:text="${gift.url}" target="_blank"></a>
+            </td>
+            <td>
+                <form method="POST" action="/shareGifts/update">
+                    <label>
+                        <input  onchange="this.form.submit()" type="checkbox" name="reserved" th:value="${gift.reserved}"
+                               th:checked="${gift.reserved}">
+                    </label>
+                    <input type="hidden" name="giftID" th:value="${gift.giftID}">
+                    <input type="hidden" name="oldListID" th:value="${oldListID}">
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>

@@ -1,31 +1,22 @@
 package com.example.fullstackprojekt.model;
 
-
 public class GiftList {
-    private Integer listID;
+    private int listID;
     private String email;
     private String listName;
 
-    // id provided
     public GiftList(int listID, String email, String listName) {
         setListID(listID);
         setEmail(email);
         setListName(listName);
     }
 
-    // no id provided
     public GiftList(String email, String listName) {
-        listID = null;
         setEmail(email);
         setListName(listName);
     }
 
-    public GiftList(String listName) {
-        listID = null;
-        setListName(listName);
-    }
-
-    public Integer getListID() {
+    public int getListID() {
         return listID;
     }
 
@@ -47,5 +38,14 @@ public class GiftList {
 
     public void setListName(String listName) {
         this.listName = listName;
+    }
+
+    @Override
+    public String toString() {
+        return "GiftList{" +
+                "listID=" + listID +
+                ", email='" + email + '\'' +
+                ", listName='" + listName + '\'' +
+                '}';
     }
 }

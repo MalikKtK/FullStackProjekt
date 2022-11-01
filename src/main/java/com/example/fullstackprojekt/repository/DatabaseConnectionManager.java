@@ -5,16 +5,13 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DatabaseConnectionManager {
-    private static String hostname;
-    private static String username;
-    private static String password;
-    private static Connection conn;
 
     public static Connection getConn() {
-        hostname = "jdbc:mysql://keadatabase.mysql.database.azure.com/wishlist";
-        username = "malik2635";
-        password = "Nwr92auv";
+        String hostname = "jdbc:mysql://keadatabase.mysql.database.azure.com/wishlist";
+        String username = "malik2635";
+        String password = "Nwr92auv";
 
+        Connection conn;
         try {
             conn = DriverManager.getConnection(hostname, username, password);
         } catch (SQLException e) {

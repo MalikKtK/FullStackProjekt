@@ -1,26 +1,28 @@
 package com.example.fullstackprojekt.model;
 
 public class Gift {
-    private Integer giftID;
+    private int giftID;
     private String giftName;
     private double price;
     private String url;
+    private boolean isReserved;
 
-    public Gift(String giftName, double price, String url){
-        giftID = null;
+    public Gift(String giftName, double price, String url, boolean isReserved){
         setGiftName(giftName);
         setPrice(price);
         setUrl(url);
+        setReserved(isReserved);
     }
 
-    public Gift(int giftID, String giftName, double price, String url){
+    public Gift(int giftID, String giftName, double price, String url, boolean isReserved){
         setGiftID(giftID);
         setGiftName(giftName);
         setPrice(price);
         setUrl(url);
+        setReserved(isReserved);
     }
 
-    public Integer getGiftID() {
+    public int getGiftID() {
         return giftID;
     }
 
@@ -52,12 +54,20 @@ public class Gift {
         this.url = url;
     }
 
+    public Boolean getReserved() {
+        return isReserved;
+    }
+
+    public void setReserved(Boolean reserved) {
+        isReserved = reserved;
+    }
+
     @Override
     public String toString() {
         return "Gift{" +
                 ", name='" + giftName + '\'' +
                 ", price=" + price +
-                ", url='" + url + '\'' +
+                ", url='" + url + '\'' + "isReserved=" + isReserved +
                 '}';
     }
 
