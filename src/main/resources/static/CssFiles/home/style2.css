@@ -4,7 +4,7 @@ body, html {
 
 .parallax {
     /* The image used */
-    background-image: url('../images/be-inspired-inside.jpeg');
+    background-image: url('../../Images/be-inspired-inside.jpeg');
 
     /* Full height */
     height: 100%;
@@ -18,7 +18,7 @@ body, html {
 }
 .parallax2 {
     /* The image used */
-    background-image: url('../images/cloud.png');
+    background-image: url('../../Images/cloud.png');
 
     /* Full height */
     height: 100%;
@@ -32,7 +32,7 @@ body, html {
 
 .parallax3 {
     /* The image used */
-    background-image: url('../images/pexels-eberhard-grossgasteiger-844297.jpg');
+    background-image: url('../../Images/pexels-eberhard-grossgasteiger-844297.jpg');
 
     /* Full height */
     height: 100%;
@@ -46,7 +46,7 @@ body, html {
 
 .parallax4 {
     /* The image used */
-    background-image: url('../images/gift1.jpeg');
+    background-image: url('../../Images/gift1.jpeg');
 
     /* Full height */
     height: 100%;
@@ -59,7 +59,7 @@ body, html {
 }
 .parallax5 {
     /* The image used */
-    background-image: url('../images/gift2.jpeg');
+    background-image: url('../../Images/gift2.jpeg');
 
     /* Full height */
     height: 100%;
@@ -75,7 +75,7 @@ body, html {
     max-width: 100%;
     width: 163px;
     height: 163px;
-    background: url('../images/cloud2.jpeg') no-repeat scroll center center transparent;
+    background: url('../../Images/cloud2.jpeg') no-repeat scroll center center transparent;
     background-size: cover;
     float: left;
     position: absolute;

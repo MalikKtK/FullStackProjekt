@@ -1,23 +1,23 @@
-CREATE DATABASE IF NOT EXISTS wishlist;
+CREATE DATABASE wishlist;
 USE wishlist;
 
-CREATE TABLE IF NOT EXISTS users
+CREATE TABLE users
 (
     email    varchar(50),
     userName varchar(50),
     primary key (email)
 );
 
-CREATE TABLE IF NOT EXISTS wishlists
+CREATE TABLE wishlists
 (
     listID   int AUTO_INCREMENT,
     email    varchar(50),
     listName varchar(50),
     PRIMARY KEY (listID),
-    FOREIGN KEY (email) REFERENCES users (email) ON DELETE CASCADE
+    FOREIGN KEY (email) REFERENCES users (email)
 );
 
-CREATE TABLE IF NOT EXISTS gifts
+CREATE TABLE gifts
 (
     giftID     int AUTO_INCREMENT,
     listID     int,

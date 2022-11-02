@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Your Wishlist</title>
-    <link rel="stylesheet" href="../CssFiles/gifts-style.css">
-    <link rel="stylesheet" href="../CssFiles/nav-style.css">
+    <link rel="stylesheet" href="../CssFiles/wish/gifts-style.css">
+    <link rel="stylesheet" href="../CssFiles/home/nav-style.css">
     <script src="https://kit.fontawesome.com/221f89293e.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -18,28 +18,7 @@
             <ul class="links">
                 <li><a href="/">Home</a></li>
                 <li><a href="/about">About</a></li>
-                <li>
-                    <a href="/inspiration" class="desktop-link">Inspiration</a>
-                    <input type="checkbox" id="show-Inspiration">
-                    <label for="show-Inspiration">Inspiration</label>
-                    <ul>
-                        <li><a href="#">Brands</a></li>
-                        <li><a href="#">WishingPost</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">Giftcard</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/help" class="desktop-link">Help</a>
-                    <input type="checkbox" id="show-help">
-                    <label for="show-help">Help</label>
-                    <ul>
-                        <li><a href="#">How to use Wishing Cloud</a></li>
-                        <li><a href="#">Share a wish</a></li>
-                        <li><a href="#">Reserve a wish</a></li>
-
-                    </ul>
-                </li>
+                <li><a href="/inspiration">Inspiration</a></li>
                 <li><a href="/contact">Contact</a></li>
                 <li class="register-li"><a href="/register">Register</a></li>
                 <li class="login-li"><a href="/login">Login</a></li>
@@ -54,21 +33,19 @@
         </form>
     </nav>
 </div>
-
-
 <button onclick="history.back()" class="backButton">Back</button>
 <br><br>
 <div class="createNewGift">
     <form method="POST" action="/gifts/newGift">
         <h1>Create a wish:</h1>
         <label for="name">Item Name: </label><br>
-        <input type="text" name="name" id="name" required placeholder="Item Name"/><span class="required"> *</span><br>
+        <input type="text" name="name" id="name" required placeholder="Product"/><span class="required"></span><br>
         <label for="price">Price: </label><br>
         <input type="number" name="price" id="price" required placeholder="Price"><br>
-        <label for="link">Url: </label><br>
-        <input type="text" name="link" id="link" required placeholder="Link"><br><br>
+        <label for="url">Url: </label><br>
+        <input type="text" name="url" id="url" required placeholder="url"><br><br>
         <input type="submit">
-        <input type="hidden" name="oldListID" th:value="${oldListID}">
+        <input type="hidden" name="newListID" th:value="${newListID}">
     </form>
 </div>
 
@@ -84,13 +61,13 @@
             <td>
                 <form method="POST" action="/gifts/deleteGift">
                     <input type="hidden" name="giftID" th:value="${gift.giftID}">
-                    <input type="hidden" name="oldListID" th:value="${oldListID}">
+                    <input type="hidden" name="newListID" th:value="${newListID}">
                     <input type="submit" value="Delete">
                 </form>
             </td>
         </tr>
     </table>
-    <a th:href="'/shareGifts?listID=' + ${oldListID}" class="shareLink">Share:</a>
+    <a th:href="'/shareGifts?listID=' + ${newListID}" class="shareLink">Share:</a>
 </div>
 </body>
 </html>

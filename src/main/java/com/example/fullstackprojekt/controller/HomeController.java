@@ -17,12 +17,12 @@ import java.util.Objects;
 @Controller
 public class HomeController {
 
-    WishRepository a = new WishRepository();
+    WishRepository repo = new WishRepository();
 
-@GetMapping("/")
-public String home(){
-    return "home/index";
-}
+    @GetMapping("/")
+    public String home() {
+        return "home/index";
+    }
 
     @GetMapping("/inspiration")
     public String inspiration() {
@@ -58,7 +58,7 @@ public String home(){
     public String createUser(WebRequest dataFromForm, Model model) {
         String email = dataFromForm.getParameter("email");
         String userName = dataFromForm.getParameter("name");
-        a.createUser(new User(email, userName));
+        repo.createUser(new User(email, userName));
 
         model.addAttribute("email", email);
 
@@ -68,7 +68,7 @@ public String home(){
     @GetMapping("/giftList")
     public String myWishlists(@RequestParam String email, Model model) {
 
-        List<GiftList> wishLists = a.getAllWishlistsFromEmail(email);
+        List<GiftList> wishLists = repo.getAllWishlistsFromEmail(email);
 
         model.addAttribute("giftLists", wishLists);
         model.addAttribute("email", email);
@@ -79,27 +79,14 @@ public String home(){
     @GetMapping("/gifts")
     public String myGifts(@RequestParam int listID, Model model) {
 
-        List<Gift> gifts = a.getGiftsFromList(listID);
-        GiftList giftList = a.getWishlist(listID);
+        List<Gift> gifts = repo.getGiftsFromList(listID);
+        GiftList giftList = repo.getWishlist(listID);
 
         model.addAttribute("listName", giftList.getListName());
-        model.addAttribute("oldListID", listID);
+        model.addAttribute("newListID", listID);
         model.addAttribute("gifts", gifts);
 
         return "wish/gifts";
-    }
-
-    @GetMapping("/shareGifts")
-    public String shareGift(@RequestParam int listID, Model model) {
-
-        List<Gift> gifts = a.getGiftsFromList(listID);
-        GiftList giftList = a.getWishlist(listID);
-
-        model.addAttribute("listName", giftList.getListName());
-        model.addAttribute("oldListID", listID);
-        model.addAttribute("gifts", gifts);
-
-        return "wish/shareGifts";
     }
 
     @PostMapping("/gifts/newGift")
@@ -107,10 +94,10 @@ public String home(){
 
         String giftName = dataFromForm.getParameter("name");
         double giftPrice = Double.parseDouble(Objects.requireNonNull(dataFromForm.getParameter("price")));
-        String url = dataFromForm.getParameter("link");
+        String url = dataFromForm.getParameter("url");
 
-        int listID = Integer.parseInt(Objects.requireNonNull(dataFromForm.getParameter("oldListID")));
-        a.createGift(new Gift(giftName, giftPrice, url, false), listID);
+        int listID = Integer.parseInt(Objects.requireNonNull(dataFromForm.getParameter("newListID")));
+        repo.createGift(new Gift(giftName, giftPrice, url, false), listID);
 
 
         return "redirect:/gifts?listID=" + listID;
@@ -120,9 +107,9 @@ public String home(){
     public String deleteGift(WebRequest dataFromForm) {
 
         int giftID = Integer.parseInt(Objects.requireNonNull(dataFromForm.getParameter("giftID")));
-        int listID = Integer.parseInt(Objects.requireNonNull(dataFromForm.getParameter("oldListID")));
+        int listID = Integer.parseInt(Objects.requireNonNull(dataFromForm.getParameter("newListID")));
 
-        a.deleteGift(giftID);
+        repo.deleteGift(giftID);
 
         return "redirect:/gifts?listID=" + listID;
     }
@@ -144,7 +131,7 @@ public String home(){
 
         GiftList giftList = new GiftList(email, listName);
 
-        a.createWishlist(giftList);
+        repo.createWishlist(giftList);
 
         return "redirect:/giftList?email=" + email;
     }
@@ -155,14 +142,27 @@ public String home(){
         int listID = Integer.parseInt(Objects.requireNonNull(dataFromForm.getParameter("listID")));
         String email = dataFromForm.getParameter("email");
 
-        a.deleteWishlist(listID);
+        repo.deleteWishlist(listID);
 
         return "redirect:/giftList?email=" + email;
     }
 
+    @GetMapping("/shareGifts")
+    public String shareGift(@RequestParam int listID, Model model) {
+
+        List<Gift> gifts = repo.getGiftsFromList(listID);
+        GiftList giftList = repo.getWishlist(listID);
+
+        model.addAttribute("listName", giftList.getListName());
+        model.addAttribute("newListID", listID);
+        model.addAttribute("gifts", gifts);
+
+        return "wish/shareGifts";
+    }
+
     @PostMapping("/shareGifts/update")
     public String updateReserved(WebRequest dataFromForm) {
-        int listID = Integer.parseInt(Objects.requireNonNull(dataFromForm.getParameter("oldListID")));
+        int listID = Integer.parseInt(Objects.requireNonNull(dataFromForm.getParameter("newListID")));
 
         int giftID = Integer.parseInt(Objects.requireNonNull(dataFromForm.getParameter("giftID")));
         String strIsReserved = dataFromForm.getParameter("reserved");
@@ -171,7 +171,7 @@ public String home(){
         isReserved = strIsReserved != null;
 
 
-        a.setIsReservedForGift(giftID, isReserved);
+        repo.setIsReservedForGift(giftID, isReserved);
 
 
         return "redirect:/shareGifts?listID=" + listID;

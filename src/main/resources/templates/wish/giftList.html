@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../CssFiles/giftList-style.css">
-    <link rel="stylesheet" href="../CssFiles/nav-style.css">
+    <link rel="stylesheet" href="../CssFiles/wish/giftList-style.css">
+    <link rel="stylesheet" href="../CssFiles/home/nav-style.css">
     <script src="https://kit.fontawesome.com/221f89293e.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -18,28 +18,7 @@
             <ul class="links">
                 <li><a href="/">Home</a></li>
                 <li><a href="/about">About</a></li>
-                <li>
-                    <a href="/inspiration" class="desktop-link">Inspiration</a>
-                    <input type="checkbox" id="show-Inspiration">
-                    <label for="show-Inspiration">Inspiration</label>
-                    <ul>
-                        <li><a href="#">Brands</a></li>
-                        <li><a href="#">WishingPost</a></li>
-                        <li><a href="#">Events</a></li>
-                        <li><a href="#">Giftcard</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/help" class="desktop-link">Help</a>
-                    <input type="checkbox" id="show-help">
-                    <label for="show-help">Help</label>
-                    <ul>
-                        <li><a href="#">How to use Wishing Cloud</a></li>
-                        <li><a href="#">Share a wish</a></li>
-                        <li><a href="#">Reserve a wish</a></li>
-
-                    </ul>
-                </li>
+                <li><a href="/inspiration">Inspiration</a></li>
                 <li><a href="/contact">Contact</a></li>
                 <li class="register-li"><a href="/register">Register</a></li>
                 <li class="login-li"><a href="/login">Login</a></li>
@@ -55,15 +34,16 @@
     </nav>
 </div>
 <form method="post" action="/giftList/newWishlist">
-    <h1 th:text="'Wishlists for ' + ${email}"></h1>
-    <h2>New Wish: </h2>
-    <label for="listName">Enter a name for the wish list: </label><br>
+    <label for="listName">Create a new wish: </label><br>
     <input type="text" name="listName" id="listName" required placeholder="Name"/> <br>
     <input type="submit">
     <input type="hidden" name="email" th:value="${email}">
 </form>
+<p>If you want to add products to the wishlist, click edit.</p>
+<button onclick="history.back()" class="backButton">Back</button>
+<br><br>
 <table>
-        <tr>List</tr>
+    <tr>Wishlists:</tr>
     <tr th:each="giftlist: ${giftLists}">
 
         <td th:text="${giftlist.listName}"></td>

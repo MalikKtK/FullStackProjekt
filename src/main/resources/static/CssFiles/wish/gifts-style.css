@@ -1,0 +1,17 @@
+
+button {
+    margin: 100px;
+}
+
+.createNewGift {
+    width: 50%;
+    margin: auto;
+}
+.giftlists {
+    margin: auto;
+    width: 50%;
+}
+
+#lists {
+    width: 100%;
+}
