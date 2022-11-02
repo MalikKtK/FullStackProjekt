@@ -14,7 +14,6 @@ import java.util.List;
 public class WishListService {
 
     private final Connection conn = DatabaseConnectionManager.getConn();
-
     private PreparedStatement psts;
 
 
@@ -52,8 +51,7 @@ public class WishListService {
                         resultSet.getInt("giftID"),
                         resultSet.getString("giftName"),
                         resultSet.getDouble("price"),
-                        resultSet.getString("url"),
-                        resultSet.getBoolean("isReserved")
+                        resultSet.getString("url")
                 ));
             }
 
@@ -61,19 +59,6 @@ public class WishListService {
         }
 
         return gifts;
-    }
-
-    public void setIsReservedForGift(int giftID, boolean isReserved) {
-        try {
-            psts = conn.prepareStatement(
-                    "UPDATE gifts SET isReserved = ? WHERE giftID = ?;");
-            psts.setBoolean(1, isReserved);
-            psts.setInt(2, giftID);
-            psts.executeUpdate();
-
-        } catch (SQLException ignored) {
-        }
-
     }
 
     public List<GiftList> getAllWishlistsFromEmail(String email) {

@@ -24,7 +24,6 @@ CREATE TABLE gifts
     giftName   varchar(50),
     price      double,
     url        varchar(50),
-    isReserved boolean,
     PRIMARY KEY (giftID),
-    FOREIGN KEY (listID) REFERENCES wishlists (listID) ON DELETE CASCADE
+    FOREIGN KEY (listID) REFERENCES wishlists (listID)
 );

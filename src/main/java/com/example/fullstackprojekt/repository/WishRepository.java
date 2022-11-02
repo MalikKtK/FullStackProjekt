@@ -6,10 +6,7 @@ import com.example.fullstackprojekt.model.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class WishRepository {
     private final Connection conn = DatabaseConnectionManager.getConn();
@@ -71,8 +68,6 @@ public class WishRepository {
             psts.setString(3, gift.getGiftName());
             psts.setDouble(4, gift.getPrice());
             psts.setString(5, gift.getUrl());
-            psts.setBoolean(6, gift.getReserved());
-
             psts.executeUpdate();
         } catch (SQLException ignored) {
         }

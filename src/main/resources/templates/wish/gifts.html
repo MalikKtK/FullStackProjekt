@@ -54,20 +54,16 @@
     <table id="lists">
         <tr th:each="gift: ${gifts}">
             <td th:text="${gift.giftName}"></td>
-            <td th:text="${gift.price}"></td>
-            <td>
-                <a th:href="${gift.url}" th:text="${gift.url}" th:target="${gift.url}"></a>
-            </td>
             <td>
                 <form method="POST" action="/gifts/deleteGift">
                     <input type="hidden" name="giftID" th:value="${gift.giftID}">
                     <input type="hidden" name="newListID" th:value="${newListID}">
                     <input type="submit" value="Delete">
                 </form>
+                <a th:href="'/shareGifts?listID=' + ${newListID}" class="shareLink">Share:</a>
             </td>
         </tr>
     </table>
-    <a th:href="'/shareGifts?listID=' + ${newListID}" class="shareLink">Share:</a>
 </div>
 </body>
 </html>

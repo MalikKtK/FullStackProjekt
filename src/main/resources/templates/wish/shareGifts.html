@@ -37,19 +37,9 @@
     <table>
         <tr th:each="gift: ${gifts}">
             <td th:text="${gift.giftName}"></td>
-            <td th:text="${gift.price}"></td>
+            <td th:text="${gift.price} + ' kr.'"></td>
             <td>
                 <a th:href="${gift.url}" th:text="${gift.url}" target="_blank"></a>
-            </td>
-            <td>
-                <form method="POST" action="/shareGifts/update">
-                    <label>
-                        <input  onchange="this.form.submit()" type="checkbox" name="reserved" th:value="${gift.reserved}"
-                               th:checked="${gift.reserved}">
-                    </label>
-                    <input type="hidden" name="giftID" th:value="${gift.giftID}">
-                    <input type="hidden" name="newListID" th:value="${newListID}">
-                </form>
             </td>
         </tr>
     </table>

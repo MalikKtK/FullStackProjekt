@@ -99,7 +99,7 @@ public class HomeController {
         String url = dataFromForm.getParameter("url");
 
         int listID = Integer.parseInt(Objects.requireNonNull(dataFromForm.getParameter("newListID")));
-        repo.createGift(new Gift(giftName, giftPrice, url, false), listID);
+        repo.createGift(new Gift(giftName, giftPrice, url), listID);
 
 
         return "redirect:/gifts?listID=" + listID;
@@ -160,22 +160,5 @@ public class HomeController {
         model.addAttribute("gifts", gifts);
 
         return "wish/shareGifts";
-    }
-
-    @PostMapping("/shareGifts/update")
-    public String updateReserved(WebRequest dataFromForm) {
-        int listID = Integer.parseInt(Objects.requireNonNull(dataFromForm.getParameter("newListID")));
-
-        int giftID = Integer.parseInt(Objects.requireNonNull(dataFromForm.getParameter("giftID")));
-        String strIsReserved = dataFromForm.getParameter("reserved");
-
-        boolean isReserved;
-        isReserved = strIsReserved != null;
-
-
-        service.setIsReservedForGift(giftID, isReserved);
-
-
-        return "redirect:/shareGifts?listID=" + listID;
     }
 }

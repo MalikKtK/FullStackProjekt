@@ -5,21 +5,18 @@ public class Gift {
     private String giftName;
     private double price;
     private String url;
-    private boolean isReserved;
 
-    public Gift(String giftName, double price, String url, boolean isReserved){
+    public Gift(String giftName, double price, String url){
         setGiftName(giftName);
         setPrice(price);
         setUrl(url);
-        setReserved(isReserved);
     }
 
-    public Gift(int giftID, String giftName, double price, String url, boolean isReserved){
+    public Gift(int giftID, String giftName, double price, String url){
         setGiftID(giftID);
         setGiftName(giftName);
         setPrice(price);
         setUrl(url);
-        setReserved(isReserved);
     }
 
     public int getGiftID() {
@@ -54,21 +51,13 @@ public class Gift {
         this.url = url;
     }
 
-    public Boolean getReserved() {
-        return isReserved;
-    }
-
-    public void setReserved(Boolean reserved) {
-        isReserved = reserved;
-    }
-
     @Override
     public String toString() {
         return "Gift{" +
-                ", name='" + giftName + '\'' +
+                "giftID=" + giftID +
+                ", giftName='" + giftName + '\'' +
                 ", price=" + price +
-                ", url='" + url + '\'' + "isReserved=" + isReserved +
+                ", url='" + url + '\'' +
                 '}';
     }
-
 }
