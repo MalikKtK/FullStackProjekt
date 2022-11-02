@@ -62,7 +62,7 @@ public class WishRepository {
         PreparedStatement psts;
 
         try {
-            psts = conn.prepareStatement("INSERT INTO gifts (giftID, listID, giftName, price, url, isReserved) VALUES (?,?,?,?,?,?);");
+            psts = conn.prepareStatement("INSERT INTO gifts (giftID, listID, giftName, price, url) VALUES (?,?,?,?,?);");
             psts.setInt(1, gift.getGiftID());
             psts.setInt(2, listID);
             psts.setString(3, gift.getGiftName());
