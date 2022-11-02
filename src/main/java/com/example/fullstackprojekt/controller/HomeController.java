@@ -4,6 +4,7 @@ import com.example.fullstackprojekt.model.Gift;
 import com.example.fullstackprojekt.model.GiftList;
 import com.example.fullstackprojekt.model.User;
 import com.example.fullstackprojekt.repository.WishRepository;
+import com.example.fullstackprojekt.service.WishListService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,7 @@ import java.util.Objects;
 public class HomeController {
 
     WishRepository repo = new WishRepository();
+    WishListService service = new WishListService();
 
     @GetMapping("/")
     public String home() {
@@ -68,7 +70,7 @@ public class HomeController {
     @GetMapping("/giftList")
     public String myWishlists(@RequestParam String email, Model model) {
 
-        List<GiftList> wishLists = repo.getAllWishlistsFromEmail(email);
+        List<GiftList> wishLists = service.getAllWishlistsFromEmail(email);
 
         model.addAttribute("giftLists", wishLists);
         model.addAttribute("email", email);
@@ -79,8 +81,8 @@ public class HomeController {
     @GetMapping("/gifts")
     public String myGifts(@RequestParam int listID, Model model) {
 
-        List<Gift> gifts = repo.getGiftsFromList(listID);
-        GiftList giftList = repo.getWishlist(listID);
+        List<Gift> gifts = service.getGiftsFromList(listID);
+        GiftList giftList = service.getWishlist(listID);
 
         model.addAttribute("listName", giftList.getListName());
         model.addAttribute("newListID", listID);
@@ -150,8 +152,8 @@ public class HomeController {
     @GetMapping("/shareGifts")
     public String shareGift(@RequestParam int listID, Model model) {
 
-        List<Gift> gifts = repo.getGiftsFromList(listID);
-        GiftList giftList = repo.getWishlist(listID);
+        List<Gift> gifts = service.getGiftsFromList(listID);
+        GiftList giftList = service.getWishlist(listID);
 
         model.addAttribute("listName", giftList.getListName());
         model.addAttribute("newListID", listID);
@@ -171,7 +173,7 @@ public class HomeController {
         isReserved = strIsReserved != null;
 
 
-        repo.setIsReservedForGift(giftID, isReserved);
+        service.setIsReservedForGift(giftID, isReserved);
 
 
         return "redirect:/shareGifts?listID=" + listID;
