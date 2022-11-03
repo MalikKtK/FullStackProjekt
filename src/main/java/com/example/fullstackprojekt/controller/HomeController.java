@@ -63,7 +63,7 @@ public class HomeController {
     }
 
     @GetMapping("/createWish")
-    public String myWishlists(@RequestParam String email, Model model) {
+    public String createWish(@RequestParam String email, Model model) {
 
         List<GiftList> wishLists = service.getAllWishlistsFromEmail(email);
 
@@ -74,7 +74,7 @@ public class HomeController {
     }
 
     @GetMapping("/addProduct")
-    public String myGifts(@RequestParam int listID, Model model) {
+    public String addProduct(@RequestParam int listID, Model model) {
 
         List<Gift> gifts = service.getGiftsFromList(listID);
         GiftList giftList = service.getWishlist(listID);
@@ -87,7 +87,7 @@ public class HomeController {
     }
 
     @PostMapping("/addProduct/newProduct")
-    public String newGift(WebRequest dataFromForm) {
+    public String newProduct(WebRequest dataFromForm) {
 
         String giftName = dataFromForm.getParameter("name");
         double giftPrice = Double.parseDouble(Objects.requireNonNull(dataFromForm.getParameter("price")));
@@ -101,7 +101,7 @@ public class HomeController {
     }
 
     @PostMapping("/addProduct/deleteProduct")
-    public String deleteGift(WebRequest dataFromForm) {
+    public String deleteProduct(WebRequest dataFromForm) {
 
         int giftID = Integer.parseInt(Objects.requireNonNull(dataFromForm.getParameter("giftID")));
         int listID = Integer.parseInt(Objects.requireNonNull(dataFromForm.getParameter("newListID")));
@@ -112,7 +112,7 @@ public class HomeController {
     }
 
     @PostMapping("/createWish/addWishList")
-    public String editList(WebRequest dataFromForm) {
+    public String addWishList(WebRequest dataFromForm) {
 
         int listID = Integer.parseInt(Objects.requireNonNull(dataFromForm.getParameter("listID")));
 
@@ -145,7 +145,7 @@ public class HomeController {
     }
 
     @GetMapping("/shareWishList")
-    public String shareGift(@RequestParam int listID, Model model) {
+    public String shareWishList(@RequestParam int listID, Model model) {
 
         List<Gift> gifts = service.getGiftsFromList(listID);
         GiftList giftList = service.getWishlist(listID);
