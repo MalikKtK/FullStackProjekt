@@ -48,7 +48,6 @@ public class WishRepository {
         try {
             psts = conn.prepareStatement("DELETE FROM wishlists WHERE listID = ?;");
             psts.setInt(1, wishListID);
-
             psts.executeUpdate();
 
         } catch (SQLException ignored) {

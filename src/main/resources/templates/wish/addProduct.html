@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Your Wishlist</title>
-    <link rel="stylesheet" href="../CssFiles/wish/shareGift-style.css">
+    <link rel="stylesheet" href="../CssFiles/wish/addProduct-style.css">
     <link rel="stylesheet" href="../CssFiles/home/nav-style.css">
     <script src="https://kit.fontawesome.com/221f89293e.js" crossorigin="anonymous"></script>
 </head>
@@ -33,17 +33,36 @@
         </form>
     </nav>
 </div>
-<div class="giftlists">
-    <table>
+<button onclick="history.back()" class="backButton">Back</button>
+<br><br>
+<div class="createNewGift">
+    <form method="POST" action="/addProduct/newProduct">
+        <label for="name">Product Name: </label><br>
+        <input type="text" name="name" id="name" required placeholder="Product"/><span class="required"></span><br>
+        <label for="price">Price: </label><br>
+        <input type="number" name="price" id="price" required placeholder="Price"><br>
+        <label for="url">Url: </label><br>
+        <input type="text" name="url" id="url" required placeholder="url"><br><br>
+        <input type="submit">
+        <input type="hidden" name="newListID" th:value="${newListID}">
+    </form>
+</div>
+
+<br><br>
+<div class="wishlists">
+    <table id="lists">
         <tr th:each="gift: ${gifts}">
             <td th:text="${gift.giftName}"></td>
-            <td th:text="${gift.price} + ' kr.'"></td>
             <td>
-                <a th:href="${gift.url}" th:text="${gift.url}" target="_blank"></a>
+                <form method="POST" action="/addProduct/deleteProduct">
+                    <input type="hidden" name="giftID" th:value="${gift.giftID}">
+                    <input type="hidden" name="newListID" th:value="${newListID}">
+                    <input type="submit" value="Delete">
+                </form>
+                <a th:href="'/shareWishList?listID=' + ${newListID}" class="shareLink">Share:</a>
             </td>
         </tr>
     </table>
-    <button onclick="history.back()" class="backButton">Back</button>
 </div>
 </body>
 </html>

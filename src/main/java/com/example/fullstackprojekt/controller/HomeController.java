@@ -36,11 +36,6 @@ public class HomeController {
         return "home/about";
     }
 
-    @GetMapping("/help")
-    public String help() {
-        return "home/help";
-    }
-
     @GetMapping("/contact")
     public String contact() {
         return "home/contact";
@@ -67,7 +62,7 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @GetMapping("/giftList")
+    @GetMapping("/createWish")
     public String myWishlists(@RequestParam String email, Model model) {
 
         List<GiftList> wishLists = service.getAllWishlistsFromEmail(email);
@@ -75,10 +70,10 @@ public class HomeController {
         model.addAttribute("giftLists", wishLists);
         model.addAttribute("email", email);
 
-        return "wish/giftList";
+        return "wish/createWish";
     }
 
-    @GetMapping("/gifts")
+    @GetMapping("/addProduct")
     public String myGifts(@RequestParam int listID, Model model) {
 
         List<Gift> gifts = service.getGiftsFromList(listID);
@@ -88,10 +83,10 @@ public class HomeController {
         model.addAttribute("newListID", listID);
         model.addAttribute("gifts", gifts);
 
-        return "wish/gifts";
+        return "wish/addProduct";
     }
 
-    @PostMapping("/gifts/newGift")
+    @PostMapping("/addProduct/newProduct")
     public String newGift(WebRequest dataFromForm) {
 
         String giftName = dataFromForm.getParameter("name");
@@ -102,10 +97,10 @@ public class HomeController {
         repo.createGift(new Gift(giftName, giftPrice, url), listID);
 
 
-        return "redirect:/gifts?listID=" + listID;
+        return "redirect:/addProduct?listID=" + listID;
     }
 
-    @PostMapping("/gifts/deleteGift")
+    @PostMapping("/addProduct/deleteProduct")
     public String deleteGift(WebRequest dataFromForm) {
 
         int giftID = Integer.parseInt(Objects.requireNonNull(dataFromForm.getParameter("giftID")));
@@ -113,19 +108,19 @@ public class HomeController {
 
         repo.deleteGift(giftID);
 
-        return "redirect:/gifts?listID=" + listID;
+        return "redirect:/addProduct?listID=" + listID;
     }
 
-    @PostMapping("/giftList/editList")
+    @PostMapping("/createWish/addWishList")
     public String editList(WebRequest dataFromForm) {
 
         int listID = Integer.parseInt(Objects.requireNonNull(dataFromForm.getParameter("listID")));
 
 
-        return "redirect:/gifts?listID=" + listID;
+        return "redirect:/addProduct?listID=" + listID;
     }
 
-    @PostMapping("/giftList/newWishlist")
+    @PostMapping("/createWish/newWishlist")
     public String newWishlist(WebRequest dataFromForm) {
 
         String listName = dataFromForm.getParameter("listName");
@@ -135,10 +130,10 @@ public class HomeController {
 
         repo.createWishlist(giftList);
 
-        return "redirect:/giftList?email=" + email;
+        return "redirect:/createWish?email=" + email;
     }
 
-    @PostMapping("/giftList/deleteWishlist")
+    @PostMapping("/createWish/deleteWishlist")
     public String deleteWishlist(WebRequest dataFromForm) {
 
         int listID = Integer.parseInt(Objects.requireNonNull(dataFromForm.getParameter("listID")));
@@ -146,10 +141,10 @@ public class HomeController {
 
         repo.deleteWishlist(listID);
 
-        return "redirect:/giftList?email=" + email;
+        return "redirect:/createWish?email=" + email;
     }
 
-    @GetMapping("/shareGifts")
+    @GetMapping("/shareWishList")
     public String shareGift(@RequestParam int listID, Model model) {
 
         List<Gift> gifts = service.getGiftsFromList(listID);
@@ -159,6 +154,6 @@ public class HomeController {
         model.addAttribute("newListID", listID);
         model.addAttribute("gifts", gifts);
 
-        return "wish/shareGifts";
+        return "wish/shareWishList";
     }
 }
